@@ -1,0 +1,168 @@
+<!doctype html>
+<head>
+  <title>WEB-HTML</title>
+  <meta charset = "utf-8">
+  <style>
+    .js{
+      font-weight:bold;
+      color:red
+    }
+    #first{
+      color:green
+    }
+    span{
+      font-weight:bolder;
+      color:blue
+    }
+  </style>
+
+  <script>
+  <!-- 객체 사용,object -->
+  function LinksSetcolor(color){
+      var alist = document.querySelectorAll('a');
+      var i = 0;
+      while( i < alist.length){
+          console.log(alist[i]);
+          alist[i].style.color = color;
+          i = i+1;
+        }
+    }
+
+  function BodySetColor(color){
+    document.querySelector('body').style.color = color;
+  }
+  function BodySetBackgroundColor(color){
+    document.querySelector('body').style.backgroundColor = color;
+  }
+    <!-- 함수사용 -->
+  function nightDayHandler(self){
+  var target = document.querySelector('body')
+  if(self.value === 'night'){
+    BodySetBackgroundColor('black')
+    BodySetColor('white')
+    self.value = 'day';
+
+    LinksSetcolor('powderblue')
+  }else{
+    BodySetBackgroundColor('white')
+    BodySetColor('black')
+    self.value = 'night';
+
+    LinksSetcolor('blue')
+  }
+}
+  </script>
+</head>
+
+<body>
+  <h1><a href="index.html">WEB</a></h1>
+
+  <ol>
+    <li><a href = "1.html">HTML</a></li>
+    <li><a href = "2.html">CSS</a></li>
+    <li><a href = "ex3.html">javaScript</a></li>
+  </ol>
+  <input type = "button" value = "night"
+         onclick = "document.querySelector('body').style.backgroundColor = 'black';
+                    document.querySelector('body').style.color = 'white';">
+  <input type = "button" value = "day"
+         onclick = "document.querySelector('body').style.backgroundColor = 'white'
+                    document.querySelector('body').style.color = 'black';">
+  <input id = "day_night" type = "button" value = "night" onclick = "
+        if(document.querySelector('#day_night').value === 'night'){
+          document.querySelector('body').style.backgroundColor = 'black';
+          document.querySelector('body').style.color = 'white';
+          document.querySelector('#day_night').value = 'day';
+
+          var alist = document.querySelectorAll('a');
+          var i = 0;
+          while( i < alist.length){
+              console.log(alist[i]);
+              alist[i].style.color = 'powderblue';
+              i = i+1;
+          }
+        }else{
+          document.querySelector('body').style.backgroundColor = 'white'
+          document.querySelector('body').style.color = 'black';
+          document.querySelector('#day_night').value = 'night';
+
+          var alist = document.querySelectorAll('a');
+          var i = 0;
+          while( i < alist.length){
+              console.log(alist[i]);
+              alist[i].style.color = 'blue';
+              i = i+1;
+          }
+        }
+    ">
+
+  <h2 style = "background-color:coral;color:powderblue"><span style = "font-weight:bold;">JavaScript</span></h2>
+
+  <p><span id = "first" class = "js">JavaScript</span> (/ˈdʒɑːvəˌskrɪpt/),[6] often abbreviated as JS, is
+    a programming language that conforms to the ECMAScript specification.[7]
+    <span class = "js">JavaScript</span> is high-level, often just-in-time compiled, and multi-paradigm.
+    It has curly-bracket syntax, <span>dynamic typing</span>, prototype-based
+    object-orientation, and first-class functions.Alongside<span> HTML</span> and <span>CSS</span>,
+    <span class = "js">JavaScript</span> is one of the core technologies of the World Wide Web.[8]
+    <span class = "js">JavaScript</span> enables interactive web pages and is an essential part of web applications.
+    The vast majority of websites use it for client-side page behavior,[9]
+    and all major web browsers have a dedicated <span class = "js">JavaScript</span> engine to execute it.</p>
+
+<img src = "coding.jpg" width = "500" height =600">
+</br>
+
+<input id = "day_night2" type = "button" value = "night" onclick = "
+      if(document.querySelector('#day_night2').value === 'night'){
+        document.querySelector('body').style.backgroundColor = 'black';
+        document.querySelector('body').style.color = 'white';
+        document.querySelector('#day_night2').value = 'day';
+      }else{
+        document.querySelector('body').style.backgroundColor = 'white'
+        document.querySelector('body').style.color = 'black';
+        document.querySelector('#day_night2').value = 'night';
+      }
+  ">
+
+</br>
+<!-- 리펙토링(this,target) -->
+
+<input id = "day_night2" type = "button" value = "night" onclick = "
+      var target = document.querySelector('body')
+      if(this.value === 'night'){
+        target.style.backgroundColor = 'black';
+        target.style.color = 'white';
+        this.value = 'day';
+
+        var alist = document.querySelectorAll('a');
+        var i = 0;
+        while( i < alist.length){
+            console.log(alist[i]);
+            alist[i].style.color = 'powderblue';
+            i = i+1;
+        }
+      }else{
+        target.style.backgroundColor = 'white'
+        target.style.color = 'black';
+        this.value = 'night';
+
+        var alist = document.querySelectorAll('a');
+        var i = 0;
+        while( i < alist.length){
+            console.log(alist[i]);
+            alist[i].style.color = 'blue';
+            i = i+1;
+        }
+      }
+  ">
+
+<!-- 함수사용 -->
+<br>
+  <input id = "day_night2" type = "button" value = "night" onclick = "
+    nightDayHandler(this);
+  ">
+  <input id = "day_night2" type = "button" value = "night" onclick = "
+    nightDayHandler(this);
+  ">
+
+
+</body>
